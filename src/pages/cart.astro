@@ -23,7 +23,7 @@ import Layout from '../layouts/Layout.astro'
         class="course"
         data-id="1"
         data-name="Curso de Robótica con Arduino"
-        data-price="19.99"
+        data-price="49.99"
       >
         <h3>Curso de Robótica con Arduino</h3>
         <p>Precio: S/.49.99</p>
@@ -111,15 +111,139 @@ import Layout from '../layouts/Layout.astro'
 
   <div id="payment-modal" class="hidden">
     <h2>Opciones de Pago</h2>
-    <button class="payment-option" data-method="Tarjeta">
+    <button class="payment-option" data-method-id="1">
       Pago con Tarjeta
     </button>
-    <button class="payment-option" data-method="Billetera">
+    <button class="payment-option" data-method-id="2">
       Pago con Billetera Digital
     </button>
     <button id="close-modal">Cancelar</button>
   </div>
 </Layout>
+
+<script>
+  // @ts-nocheck
+
+  import { toAttributeString } from 'astro/runtime/server/render/util.js'
+
+  const cartItems = []
+  const cartElement = document.getElementById('cart-items')
+  const totalElement = document.getElementById('total-amount')
+  const paymentModal = document.getElementById('payment-modal')
+
+  document.querySelectorAll('.add-to-cart').forEach(button => {
+    button.addEventListener('click', addToCart)
+  })
+
+  document.getElementById('checkout').addEventListener('click', () => {
+    paymentModal.style.display = 'block'
+  })
+
+  document.getElementById('close-modal').addEventListener('click', () => {
+    paymentModal.style.display = 'none'
+  })
+
+  document.querySelectorAll('.payment-option').forEach(option => {
+    option.addEventListener('click', async () => {
+      // console.log(cartItems.map(({ id }) => id))
+      const paymentMethod = option.dataset.methodId
+      const user = JSON.parse(localStorage.getItem('token'))
+      if (!user) {
+        window.location.href = '/login'
+        alert('Inicia sesion')
+      }
+
+      const payment = {
+        user: {
+          idUser: user.idUser,
+        },
+        paymentMethod: {
+          id: paymentMethod,
+        },
+        totalPayment: Number(totalElement?.dataset.total) || 0,
+        paymentDetails: cartItems.map(({ id }) => ({ course: { id } })),
+      }
+
+      try {
+        const response = await fetch('http://localhost:8000/api/payment', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(payment),
+        })
+
+        if (!response.ok) {
+          throw new Error(`Error: ${response.status}`)
+        }
+
+        const result = await response.json()
+        // console.log('Login successful:', result)
+
+        alert(`Compra exitosa`)
+
+        // localStorage.setItem('token', JSON.stringify(result))
+
+        // alert('Inicio de sesión exitoso. Bienvenido de nuevo.')
+        // window.location.href = '/'
+      } catch (error) {
+        console.error('Login failed:', error)
+        alert('Error al iniciar sesión. Verifica tus credenciales.')
+      }
+
+      // alert(`Compra exitosa con ${paymentMethod}`)
+      paymentModal.style.display = 'none'
+      cartItems.length = 0
+      updateCart()
+    })
+  })
+
+  function addToCart(event) {
+    const courseElement = event.target.parentElement
+    const courseId = courseElement.getAttribute('data-id')
+    const courseName = courseElement.getAttribute('data-name')
+    const coursePrice = parseFloat(courseElement.getAttribute('data-price'))
+
+    const existingItem = cartItems.find(item => item.id === courseId)
+    if (existingItem) {
+      existingItem.quantity += 1
+    } else {
+      console.log(courseId)
+      cartItems.push({
+        id: courseId,
+        name: courseName,
+        price: coursePrice,
+        quantity: 1,
+      })
+    }
+    updateCart()
+  }
+
+  function updateCart() {
+    cartElement.innerHTML = ''
+    let total = 0
+    cartItems.forEach(item => {
+      const li = document.createElement('li')
+      li.textContent = `${item.name} - S/.${item.price} x ${item.quantity}`
+      const removeButton = document.createElement('button')
+      removeButton.textContent = 'Eliminar'
+      removeButton.addEventListener('click', () => removeFromCart(item.id))
+      li.appendChild(removeButton)
+      cartElement.appendChild(li)
+      total += item.price
+    })
+    totalElement?.setAttribute('data-total', total.toFixed(2))
+    totalElement.textContent = `S/.${total.toFixed(2)}`
+  }
+
+  function removeFromCart(courseId) {
+    const itemIndex = cartItems.findIndex(item => item.id === courseId)
+    if (itemIndex > -1) {
+      cartItems.splice(itemIndex, 1)
+    }
+    updateCart()
+  }
+</script>
 
 <style>
   body {
