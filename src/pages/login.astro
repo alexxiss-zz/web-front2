@@ -1,0 +1,189 @@
+---
+import Layout from '../layouts/Layout.astro'
+---
+
+<Layout>
+  <div class="login-container">
+    <div class="login-box">
+      <h2 class="login-title">Iniciar Sesión</h2>
+      <form class="login-form">
+        <div class="input-box">
+          <input type="email" required id="email" name="email" />
+          <label>Email</label>
+        </div>
+        <div class="input-box">
+          <input type="password" required id="password" name="password" />
+          <label>Contraseña</label>
+        </div>
+        <button type="submit" class="login-btn">Ingresar</button>
+      </form>
+      <div class="register-link">
+        <p>¿No tienes cuenta? <a href="/register">Regístrate aquí</a></p>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<script>
+  const loginForm = document.querySelector('.login-form')
+  if (loginForm) {
+    loginForm.addEventListener('submit', async event => {
+      event.preventDefault()
+
+      const formData = new FormData(event.target as HTMLFormElement)
+
+      const loginData = {
+        email: formData.get('email'),
+        password: formData.get('password'),
+      }
+
+      try {
+        const response = await fetch('http://localhost:8000/api/auth/login', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(loginData),
+        })
+
+        if (!response.ok) {
+          throw new Error(`Error: ${response.status}`)
+        }
+
+        const result = await response.json()
+        console.log('Login successful:', result)
+
+        localStorage.setItem('token', JSON.stringify(result))
+
+        // alert('Inicio de sesión exitoso. Bienvenido de nuevo.')
+        window.location.href = '/'
+      } catch (error) {
+        console.error('Login failed:', error)
+        alert('Error al iniciar sesión. Verifica tus credenciales.')
+      }
+    })
+  }
+</script>
+
+<style>
+  body {
+    background: linear-gradient(135deg, rgb(61, 174, 255), rgb(122, 45, 255));
+    background-image: url('Icons/Lorem\ ipsum\ dolor\ sit\ amet\,\ consectetur\ adipiscing\ elit\,\ sed\ do\ eiusmod\ tempor\ incididunt\ ut\ labore\ et\ dolore\ magna\ aliqua.\ Ut\ enim\ ad\ minim\ veniam\,\ quis\ nostrud\ exercitation\ ullamco\ laboris\ nisi\ \ \(3\).png');
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+  }
+
+  .login-container {
+    width: 100%;
+    max-width: 400px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 1.5s ease-in-out;
+  }
+
+  .login-title {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: rgb(135, 206, 250);
+  }
+
+  .login-form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .input-box {
+    position: relative;
+    margin-bottom: 30px;
+  }
+
+  .input-box input {
+    width: 100%;
+    padding: 10px;
+    background: none;
+    border: none;
+    border-bottom: 2px solid white;
+    color: white;
+    font-size: 1.1em;
+    outline: none;
+    transition: border-color 0.3s;
+  }
+
+  .input-box input:focus {
+    border-color: rgb(135, 206, 250);
+  }
+
+  .input-box label {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    color: rgba(255, 255, 255, 0.6);
+    pointer-events: none;
+    transition:
+      top 0.3s,
+      font-size 0.3s;
+  }
+
+  .input-box input:focus + label,
+  .input-box input:valid + label {
+    top: 0;
+    font-size: 0.9em;
+    color: rgb(135, 206, 250);
+  }
+
+  .login-btn {
+    padding: 10px;
+    background-image: linear-gradient(
+      135deg,
+      rgb(61, 174, 255),
+      rgb(122, 45, 255)
+    );
+    border: none;
+    border-radius: 25px;
+    color: white;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-image 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .login-btn:hover {
+    background-image: linear-gradient(
+      135deg,
+      rgb(122, 45, 255),
+      rgb(61, 174, 255)
+    );
+  }
+
+  .register-link {
+    text-align: center;
+    margin-top: 15px;
+  }
+
+  .register-link a {
+    color: rgb(135, 206, 250);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .register-link a:hover {
+    color: rgb(255, 255, 255);
+  }
+
+  /* Animación de fadeIn */
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+</style>
