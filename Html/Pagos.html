@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opciones de Pago</title>
+    <link rel="stylesheet" href="../CSS/Pagos.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Cursos Disponibles</h1>
+        <div class="curso">
+            <p>Curso de Robótica con Arduino</p>
+            <p>Precio: S/.49.99</p>
+            <button class="agregar">Agregar al Carrito</button>
+        </div>
+        <div class="curso">
+            <p>Curso de Electrónica y Programación Virtual</p>
+            <p>Precio: S/.24.99</p>
+            <button class="agregar">Agregar al Carrito</button>
+        </div>
+        <div id="carrito">
+            <h2>Tu Carrito</h2>
+            <div id="itemsCarrito"></div>
+            <p>Total: S/. <span id="total">0.00</span></p>
+            <button id="comprarBtn">Comprar</button>
+        </div>
+    </div>
+
+    <!-- Modal de Opciones de Pago -->
+    <div id="modalPago" class="modal">
+        <div class="modal-content">
+            <h3>Opciones de Pago</h3>
+            <button id="pagoTarjeta" class="btn-pago">Pago con Tarjeta</button>
+            <button id="pagoBilletera" class="btn-pago">Pago con Billetera Digital</button>
+            <button id="cancelar" class="btn-cancel">Cancelar</button>
+        </div>
+    </div>
+
+    <script src="../JS/MetodosPago.js"></script>
+</body>
+</html>

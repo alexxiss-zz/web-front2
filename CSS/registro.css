@@ -1,0 +1,132 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, rgb(61, 174, 255), rgb(122, 45, 255));
+  background-image: url("Icons/Lorem  (6).png");
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.register-container {
+  width: 100%;
+  max-width: 450px;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 15px;
+  padding: 40px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+.register-title {
+  text-align: center;
+  font-size: 2.5em;
+  margin-bottom: 30px;
+  background-image: linear-gradient(135deg, rgb(61, 174, 255), rgb(122, 45, 255));
+  background-clip:text;
+  color: transparent;
+  font-weight: bold;
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-box {
+  position: relative;
+  margin-bottom: 35px;
+}
+
+.input-box input {
+  width: 100%;
+  padding: 10px;
+  background: none;
+  border: none;
+  border-bottom: 2px solid white;
+  color: white;
+  font-size: 1.1em;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.input-box input:focus {
+  border-color: rgb(135, 206, 250);
+}
+
+.input-box label {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  color: rgba(255, 255, 255, 0.6);
+  pointer-events: none;
+  transition: top 0.3s, font-size 0.3s;
+}
+
+.input-box input:focus + label,
+.input-box input:valid + label {
+  top: 0;
+  font-size: 0.9em;
+  color: rgb(135, 206, 250);
+}
+
+.terms {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.terms a {
+  color: rgb(135, 206, 250);
+  text-decoration: none;
+  margin-left: 5px;
+}
+
+.terms input {
+  margin-right: 10px;
+}
+
+.register-btn {
+  padding: 12px;
+  background-image: linear-gradient(135deg, rgb(61, 174, 255), rgb(122, 45, 255));
+  border: none;
+  border-radius: 25px;
+  color: white;
+  font-size: 1.2em;
+  cursor: pointer;
+  transition: background-image 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.register-btn:hover {
+  background-image: linear-gradient(135deg, rgb(122, 45, 255), rgb(61, 174, 255));
+}
+
+.login-link {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.login-link a {
+  color: rgb(135, 206, 250);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.login-link a:hover {
+  color: rgb(255, 255, 255);
+}
+
+/* Animación de fadeIn */
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}

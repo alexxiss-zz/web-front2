@@ -1,0 +1,186 @@
+/* Estilo del cuerpo */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+/* Estilo del header */
+header {
+    background-color: #222;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+header .logo {
+    font-size: 1.8em;
+    font-weight: bold;
+    text-decoration: none;
+    color: #00d1b2;
+}
+
+header .btns a {
+    text-decoration: none;
+    color: white;
+    margin-left: 15px;
+    padding: 10px 20px;
+    border-radius: 50px;
+    background-color: #00d1b2;
+    transition: background-color 0.3s ease;
+}
+
+header .btns a:hover {
+    background-color: #00b09b;
+}
+
+/* Sección de precios */
+.pricing-section {
+    padding: 60px 20px;
+    background-color: #f0f4f8;
+    text-align: center;
+}
+
+.pricing-section h1 {
+    font-size: 2.5em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.pricing-section p {
+    font-size: 1.2em;
+    color: #666;
+    margin-bottom: 50px;
+}
+
+/* Contenedor de las tarjetas */
+.plans {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+/* Estilo de cada tarjeta */
+.plan-card {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.plan-card h2 {
+    font-size: 1.8em;
+    color: #00d1b2;
+    margin-bottom: 10px;
+}
+
+.plan-card h3 {
+    font-size: 2.5em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.plan-card p {
+    font-size: 1.1em;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+/* Efecto de hover */
+.plan-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Estilo de los botones */
+.plan-card .btn {
+    background-color: #00d1b2;
+    color: white;
+    padding: 15px 40px;
+    border: none;
+    border-radius: 30px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+/* Efecto de hover en botones */
+.plan-card .btn:hover {
+    background-color: #00b09b;
+    transform: translateY(-3px);
+}
+
+/* Efecto animado en botones (resplandor) */
+.plan-card .btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -50%;
+    width: 200%;
+    height: 300%;
+    background: linear-gradient(120deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05));
+    transition: transform 0.5s ease;
+    transform: rotate(45deg);
+    z-index: -1;
+}
+
+.plan-card .btn:hover::before {
+    transform: translateX(50%);
+}
+
+/* Colores específicos para cada plan */
+.plan-card.basic h2 {
+    color: #3498db;
+}
+
+.plan-card.basic .btn {
+    background-color: #3498db;
+}
+
+.plan-card.basic .btn:hover {
+    background-color: #2980b9;
+}
+
+.plan-card.standard h2 {
+    color: #9b59b6;
+}
+
+.plan-card.standard .btn {
+    background-color: #9b59b6;
+}
+
+.plan-card.standard .btn:hover {
+    background-color: #8e44ad;
+}
+
+.plan-card.premium h2 {
+    color: #e74c3c;
+}
+
+.plan-card.premium .btn {
+    background-color: #e74c3c;
+}
+
+.plan-card.premium .btn:hover {
+    background-color: #c0392b;
+}
+
+/* Diseño responsivo */
+@media screen and (max-width: 900px) {
+    .plans {
+        flex-direction: column;
+        align-items: center;
+    }
+}

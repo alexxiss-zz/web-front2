@@ -1,0 +1,163 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: #040b12;
+  color: #333;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+header.hero {
+  position: relative;
+  text-align: center;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+.hero-image {
+  width: 100%;
+  height: auto;
+}
+
+.hero-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgb(255, 255, 255);
+  font-size: 4em;
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+
+.info-docente {
+  padding: 15px;
+  background-color: rgb(245, 245, 245);
+  margin: 10px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  animation: slideInLeft 1s ease-out;
+}
+
+.contenedor {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+  animation: fadeIn 2s ease-in;
+}
+
+.timeline {
+  width: 65%;
+  background-color: rgba(240, 42, 42, 0.822);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgb(240, 42, 42);
+  animation: slideInLeft 1.5s ease-out;
+}
+
+.timeline ul {
+  list-style: none;
+}
+
+.timeline li {
+  margin-bottom: 20px;
+}
+
+.timeline .content {
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.998);
+  border-radius: 5px;
+  transition: transform 0.3s ease;
+}
+
+.timeline .content:hover {
+  transform: scale(1.05);
+}
+
+.resumen-curso {
+  width: 30%;
+  background-color: rgb(49, 240, 154);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+  animation: slideInRight 1.5s ease-out;
+}
+
+.resumen-curso h2 {
+  margin-bottom: 10px;
+}
+
+.comprar-btn {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: rgb(61, 174, 87);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  margin-top: 20px;
+  font-size: 1.2em;
+  transition: background-color 0.3s ease;
+}
+
+.comprar-btn:hover {
+  background-color: rgb(46, 138, 69);
+  justify-content: flex-end;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInLeft {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Estilos para la sección de detalles del curso */
+.detalles-cursos {
+  margin: 20px;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 2s ease-in;
+}
+
+.detalle-semana {
+  margin-bottom: 20px;
+  animation: fadeIn 2s ease-in-out;
+}

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Carrito de Compras</title>
+    <link rel="stylesheet" href="../CSS/stylecarrito.css" />
+    <link rel="stylesheet" href="../Html/Pagos.html">
+  </head>
+  <body>
+    <header class="header">
+      <div class="logo">
+        <img src="#" alt="RecreadeCode" />
+      </div>
+      <nav class="navbar">
+        <ul>
+          <li><a href="Planes.html">Planes</a></li>
+          <li><a href="Qsms.html">¿Quiénes somos?</a></li>
+          <li><a href="login.html" class="login-btn">Acceder</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section id="courses">
+        <h2>Cursos Disponibles</h2>
+        <div
+          class="course"
+          data-id="1"
+          data-name="Curso de Robótica con Arduino"
+          data-price="19.99"
+        >
+          <h3>Curso de Robótica con Arduino</h3>
+          <p>Precio: S/.49.99</p>
+          <button class="add-to-cart">Agregar al Carrito</button>
+        </div>
+
+        <div
+          class="course"
+          data-id="2"
+          data-name="Curso de Electrónica y Prog. Virtual"
+          data-price="24.99"
+        >
+          <h3>Curso de Electrónica y Prog. Virtual</h3>
+          <p>Precio: S/.24.99</p>
+          <button class="add-to-cart">Agregar al Carrito</button>
+        </div>
+
+        <div
+          class="course"
+          data-id="3"
+          data-name="urso de Proyectos con Arduino"
+          data-price="29.99"
+        >
+          <h3>Curso de Proyectos con Arduino</h3>
+          <p>Precio: S/. 29.99</p>
+          <button class="add-to-cart">Agregar al Carrito</button>
+        </div>
+
+        <div
+          class="course"
+          data-id="4"
+          data-name="Curso de Entrenamiento Mental"
+          data-price="29.99"
+        >
+          <h3>Curso de Entrenamiento Mental</h3>
+          <p>Precio: S/. 29.99</p>
+          <button class="add-to-cart">Agregar al Carrito</button>
+        </div>
+
+        <div
+          class="course"
+          data-id="5"
+          data-name="Curso de Intro. a la Robótica"
+          data-price="29.99"
+        >
+          <h3>Curso de Intro. a la Robótica</h3>
+          <p>Precio: S/. 29.99</p>
+          <button class="add-to-cart">Agregar al Carrito</button>
+        </div>
+
+        <div
+          class="course"
+          data-id="6"
+          data-name="Curso de Asincronismo con JS"
+          data-price="29.99"
+        >
+          <h3>Curso de Asincronismo con JS</h3>
+          <p>Precio: S/. 29.99</p>
+          <button class="add-to-cart">Agregar al Carrito</button>
+        </div>
+
+        <div
+          class="course"
+          data-id="7"
+          data-name="Curso de Prog. de juegos con Scratch y Kodu"
+          data-price="29.99"
+        >
+          <h3>Curso de Prog. de juegos con Scratch y Kodu</h3>
+          <p>Precio: S/. 29.99</p>
+          <button class="add-to-cart">Agregar al Carrito</button>
+        </div>
+      </section>
+
+      <section id="cart">
+        <h2>Tu Carrito</h2>
+        <ul id="cart-items">
+          <!-- Aquí se mostrarán los cursos agregados al carrito -->
+        </ul>
+        <div id="total">
+          <p>Total: <span id="total-amount">S/. 0.00</span></p>
+        </div>
+        <button id="checkout">Comprar</button>
+      </section>
+    </main>
+
+    <div id="payment-modal" class="hidden">
+      <h2>Opciones de Pago</h2>
+      <button class="payment-option" data-method="Tarjeta">
+        Pago con Tarjeta
+      </button>
+      <button class="payment-option" data-method="Billetera">
+        Pago con Billetera Digital
+      </button>
+      <button id="close-modal">Cancelar</button>
+    </div>
+
+    <script src="../JS/mainC.js"></script>
+  </body>
+</html>

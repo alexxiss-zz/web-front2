@@ -1,0 +1,138 @@
+/* Estilos generales */
+body {
+    background-color: #0f0f0f;
+    color: #ffffff;
+    font-family: 'Arial', sans-serif;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #0a0a0a;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.navbar ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    position: relative;
+    z-index: 1;
+    transition: color 0.5s ease;
+}
+
+.navbar ul li a:hover {
+    color: #00ffff;
+}
+
+.login-btn {
+    background-color: #ff0066;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login-btn:hover {
+    background-color: #ff3385;
+    box-shadow: 0 0 15px rgba(255, 51, 133, 0.7);
+}
+
+/* Sección de cursos */
+.courses-section {
+    padding: 50px 20px;
+    text-align: center;
+    background: linear-gradient(135deg, #1d1f27, #1b1b1b);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    color: #00ffff;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
+}
+
+.section-description {
+    font-size: 1.2rem;
+    color: #cccccc;
+    margin-bottom: 40px;
+}
+
+.courses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.course-card {
+    background-color: #1e1f26;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.course-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.8);
+}
+
+.course-card img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.course-card h3 {
+    font-size: 1.5rem;
+    color: #ff0066;
+    margin-bottom: 10px;
+}
+
+.course-card p {
+    color: #cccccc;
+}
+
+/* Efecto RGB en las tarjetas de curso */
+.course-card:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, #ff0000, #00ff00, #0000ff, #ff00ff);
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(10px);
+    opacity: 0;
+    transition: opacity 0.5s ease, background-position 3s ease;
+    border-radius: 10px;
+}
+
+.course-card:hover:before {
+    opacity: 1;
+    background-position: 200%;
+}
+
+/* Animación en imágenes */
+.course-card:hover img {
+    filter: brightness(1.2);
+}
+
+.course-card img {
+    transition: filter 0.3s ease;
+}

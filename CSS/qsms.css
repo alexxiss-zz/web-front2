@@ -1,0 +1,221 @@
+/* Estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #101010;
+    color: #fff;
+    line-height: 1.6;
+}
+
+/* Header */
+header {
+    background-color: #141414;
+    padding: 10px 0;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+nav a.logo {
+    color: #fff;
+    font-size: 24px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 8px 16px;
+    transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+    background-color: #0F4C81;
+    border-radius: 4px;
+}
+
+nav a.btn-acceder {
+    background-color: #ff007a;
+    padding: 10px 20px;
+    border-radius: 20px;
+    color: #fff;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+nav a.btn-acceder:hover {
+    background-color: #ff1a8c;
+}
+
+/* Sección Hero */
+.hero {
+    text-align: center;
+    padding: 100px 20px;
+    background-color: #202020;
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    color: #00d8ff;
+}
+
+.hero p {
+    font-size: 20px;
+    margin-bottom: 30px;
+    color: #e0e0e0;
+}
+
+.hero a.btn-cta {
+    padding: 12px 30px;
+    background-color: #ff007a;
+    border-radius: 30px;
+    color: #fff;
+    font-size: 18px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.hero a.btn-cta:hover {
+    background-color: #ff1a8c;
+}
+
+/* Sección principal */
+main {
+    padding: 60px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.intro {
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.intro h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.intro p {
+    font-size: 18px;
+    color: #e0e0e0;
+}
+
+/* Sección de equipo */
+.equipo-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 50px;
+}
+
+.equipo-item {
+    text-align: center;
+}
+
+.equipo-item img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.equipo-item h3 {
+    font-size: 22px;
+    color: #00d8ff;
+}
+
+.equipo-item p {
+    color: #e0e0e0;
+}
+
+/* Sección de valores */
+.valores-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+}
+
+.valor-item {
+    flex: 1;
+    margin: 0 10px;
+    text-align: center;
+}
+
+.valor-item h3 {
+    font-size: 24px;
+    color: #00d8ff;
+    margin-bottom: 10px;
+}
+
+.valor-item p {
+    color: #e0e0e0;
+}
+
+/* Footer */
+footer {
+    background-color: #141414;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+}
+
+footer p {
+    font-size: 14px;
+}
+
+/* Animaciones */
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 2s forwards;
+}
+
+.slide-up {
+    transform: translateY(30px);
+    opacity: 0;
+    animation: slideUp 1.5s forwards;
+}
+
+.zoom-in {
+    transform: scale(0);
+    animation: zoomIn 1.5s forwards;
+}
+
+.bounce-in {
+    animation: bounceIn 2s forwards;
+}
+
+/* Keyframes para animaciones */
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    to {
+        transform: translateY(0);
+        opacity: 1;}}
